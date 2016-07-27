@@ -12,10 +12,11 @@ else:
     pythonista = False
 import requests
 
-USER = input("GitHub Username: ")
 if pythonista:
-    PASS = console.secure_input("GitHub Password: ")
+    USER = console.input_alert("GitHub Username: ")
+    PASS = console.password_alert("GitHub Password: ")
 else:
+    USER = input("GitHub Username: ")
     PASS = getpass.getpass("GitHub Password: ")
 
 
