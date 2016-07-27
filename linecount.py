@@ -3,11 +3,20 @@
 import getpass
 import json
 import os
+import sys
 
+if sys.platform == 'ios':
+    pythonista = True
+    import console
+else:
+    pythonista = False
 import requests
 
 USER = input("GitHub Username: ")
-PASS = getpass.getpass("GitHub Password: ")
+if pythonista:
+    PASS = console.secure_input("GitHub Password: ")
+else:
+    PASS = getpass.getpass("GitHub Password: ")
 
 
 def get(path, params={}):
